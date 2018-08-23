@@ -48,6 +48,7 @@ RUN set -ex; \
     \
     # Install NodeJS
     apk add --no-cache nodejs; \
+    apk add --no-cache yarn; \
     \
     # Install Heroku Cli
     npm install -g heroku
