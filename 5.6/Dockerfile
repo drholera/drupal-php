@@ -39,7 +39,14 @@ RUN set -ex; \
     \
     # Clean up
     su-exec wodby drush cc drush; \
-    su-exec wodby composer clear-cache
+    su-exec wodby composer clear-cache; \
+    \
+    # Install NodeJS
+    su-exec wodby apk add --no-cache nodejs; \
+    \
+    # Install Heroku Cli
+    curl https://cli-assets.heroku.com/install.sh | sh; \
+    su-exec wodby rm /usr/local/lib/heroku/bin/node
 
 USER wodby
 
