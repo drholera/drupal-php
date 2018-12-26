@@ -44,14 +44,11 @@ RUN set -ex; \
     \
     # Clean up
     su-exec wodby composer clear-cache; \
-    su-exec wodby drush cc drush; \
-    apk update && apk upgrade \
-    \
-    # Install NodeJS
-    apk add --no-cache nodejs nodejs-npm yarn; \
-    \
-    # Install Heroku Cli
-    # npm install -g heroku
+    su-exec wodby drush cc drush;
+
+# Install NodeJS & Heroku CLI.
+RUN apk update && apk upgrade && \
+    apk add --no-cache nodejs nodejs-npm yarn && \
     curl https://cli-assets.heroku.com/install.sh | sh
 
 USER wodby
