@@ -45,7 +45,7 @@ RUN set -ex; \
     # Clean up
     su-exec wodby composer clear-cache; \
     su-exec wodby drush cc drush; \
-    apk update && apk apgrade \
+    apk update && apk upgrade \
     \
     # Install NodeJS
     apk add --no-cache nodejs; \
