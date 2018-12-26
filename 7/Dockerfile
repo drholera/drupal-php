@@ -48,11 +48,11 @@ RUN set -ex; \
     apk update && apk upgrade \
     \
     # Install NodeJS
-    apk add --no-cache nodejs; \
-    apk add --no-cache yarn; \
+    apk add --no-cache nodejs nodejs-npm yarn; \
     \
     # Install Heroku Cli
-    npm install -g heroku
+    # npm install -g heroku
+    curl https://cli-assets.heroku.com/install.sh | sh
 
 USER wodby
 
